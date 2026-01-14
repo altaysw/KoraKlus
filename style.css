@@ -1,0 +1,563 @@
+/* =======================
+   VARIABLES
+======================= */
+:root {
+  --primary-bg: #fbf7ef;
+  --secondary-bg: #777869;
+  --contact-bg: #f7efe0;
+  --footer-bg: #2e251b;
+  --accent-color: #7a7d6e;
+  --accent-hover: #6a6d5f;
+  --error-color: #b24a4a;
+  --font-main: "Roboto", Arial, Helvetica, sans-serif;
+  --font-heading: "Instrument Serif", "Times New Roman", Times, serif;
+}
+
+/* =======================
+   GLOBAL RESET & TYPOGRAPHY
+======================= */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  font-weight: 300;
+  line-height: 1.25em;
+  letter-spacing: -0.02em;
+  font-size: 16px;
+  color: #000;
+}
+
+p,
+li,
+h3,
+label {
+  font-size: 1.2em;
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 200;
+  font-size: 2.5em;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1em;
+  letter-spacing: -0.03em;
+  font-size: 3.5em;
+  padding-bottom: 0.25em;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 0.5em 0;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* =======================
+   HEADER
+======================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 2em;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  color: white;
+  transition: transform 0.3s ease, background 0.3s ease;
+  z-index: 1000;
+}
+
+header.hide {
+  transform: translateY(-100%);
+}
+
+header.active-bg {
+  background: #231b18;
+}
+
+header nav ul {
+  display: flex;
+  gap: 2em;
+}
+
+/* =======================
+   HERO SECTION
+======================= */
+#Introductie {
+  position: relative;
+  height: 750px;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5)),
+    url("voorpagina/voorpagina_1.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: white;
+  padding: 1em 3em;
+}
+
+#Introductie::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+#Introductie h2,
+#Introductie h3 {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
+#Introductie h2 {
+  font-size: 7em;
+}
+
+#Introductie h3 {
+  font-size: clamp(1.2rem, 2vw, 1.7rem); /* scales with viewport */
+  max-width: 40%; /* prevents text from overflowing */
+  line-height: 1.4em; /* more space between lines */
+  padding-bottom: 2rem;
+  word-wrap: break-word; /* ensure long words wrap */
+  font-weight: 400;
+  padding-bottom: 3em;
+}
+
+/* =======================
+   ARTICLES / CONTENT SECTIONS
+======================= */
+#OverMij {
+  display: flex;
+  padding: 5em 3em;
+  background-color: var(--primary-bg);
+}
+
+#OverMij > div {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 7.5em;
+}
+
+#OverMij > div p {
+  padding-top: 1em;
+}
+
+#OverMij > div figure {
+  margin-top: 2em;
+}
+
+#OverMij > div figure img {
+  width: 15vw;
+}
+
+#OverMij > figure img {
+  width: 50vw;
+  padding: 6em 0 0 7.5em;
+}
+
+/* =======================
+   SECTION: Reparaties
+======================= */
+#Reparaties {
+  background-color: var(--secondary-bg);
+  color: white;
+  padding: 5em 3em;
+}
+
+#Reparaties h2 {
+  font-size: 7em;
+}
+
+#Reparaties p {
+  width: 35vw;
+}
+
+#Reparaties ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 3em;
+  margin: 2em 0;
+}
+
+#Reparaties ul li img {
+  width: 250px;
+}
+
+/* =======================
+   SECTION: Contact
+======================= */
+#Contact {
+  background-color: var(--contact-bg);
+  padding: 5em 3em;
+}
+
+#Contact h2 {
+  font-size: 7em;
+  line-height: 0.8;
+  text-align: center;
+  padding-bottom: 1.4em;
+}
+
+#Contact > div {
+  display: flex;
+}
+
+#Contact > div > div {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#Contact > div > div p {
+  width: 25vw;
+}
+
+#Contact > div > div img {
+  width: 15vw;
+}
+
+/* =======================
+   FORM STYLING
+======================= */
+.form-wrapper {
+  max-width: 50vw;
+  padding: 0 1em 3em 6em;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.contact-form span {
+  font-size: 0.8em;
+  color: #666;
+}
+
+.name-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #9a9a9a;
+  background: transparent;
+  padding: 8px 2px;
+  margin-bottom: 25px;
+  font-size: 1em;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-bottom-color: #555;
+}
+
+button {
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 12px 36px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+}
+
+.error {
+  color: var(--error-color);
+  font-size: 12px;
+  margin: -18px 0 18px 0;
+  display: block;
+}
+
+/* =======================
+   SECTION: Video & Testimonial
+======================= */
+#Beoordelingen {
+  display: flex;
+  padding: 5em 3em;
+}
+
+#Beoordelingen video {
+  width: 50%;
+  padding: 10em;
+}
+
+#Beoordelingen div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5em;
+}
+
+#Beoordelingen p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 3.5rem); /* scales with viewport */
+  line-height: 1.3; /* gives breathing room between lines */
+  padding-bottom: 0.75em;
+  word-wrap: break-word; /* ensures long words wrap */
+}
+
+/* =======================
+   FOOTER
+======================= */
+footer {
+  background-color: var(--footer-bg);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+}
+
+footer h3,
+footer nav h2 {
+  font-family: Helvetica, sans-serif;
+  font-size: 1em;
+}
+
+footer h3 {
+  padding-bottom: 1em;
+}
+
+footer p,
+footer a {
+  font-size: 0.8em;
+}
+
+footer > :first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 0;
+}
+
+footer > :first-child h2 {
+  font-style: italic;
+}
+
+footer > :nth-child(2) {
+  font-style: normal;
+  margin-bottom: 17em;
+}
+
+footer > :nth-child(2) span {
+  font-size: 0.8em;
+}
+
+footer > :last-child {
+  display: flex;
+  margin: 0 15em 17em 0;
+}
+
+/* =======================
+   RESPONSIVE: TABLET / MOBILE
+======================= */
+@media (max-width: 1024px) {
+  header {
+    width: 100%;
+  }
+
+  header nav {
+    display: none;
+  }
+
+  #OverMij,
+  #Contact > div {
+    flex-direction: column;
+  }
+
+  #OverMij > div,
+  #OverMij > figure img,
+  #Contact > div > div {
+    width: 100%;
+    padding-right: 0;
+  }
+
+  #OverMij > div {
+    flex-direction: row;
+  }
+
+  #OverMij p,
+  #Reparaties p {
+    width: 50vw;
+  }
+
+  #OverMij > div > figure img {
+    width: 20vw;
+  }
+
+  #OverMij > figure img {
+    width: 40vw;
+    padding-left: 0;
+  }
+
+  #Introductie h2 {
+    font-size: 5em;
+  }
+
+  #Introductie h3 {
+    font-size: 1.3em;
+    padding-bottom: 2em;
+  }
+
+  #Reparaties ul li img {
+    width: 10em;
+  }
+
+  #Contact div div:first-of-type {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 4em;
+  }
+
+  #Contact div div:first-of-type img {
+    width: 20vw;
+  }
+
+  #Contact div div:first-of-type p {
+    width: 25vw;
+  }
+
+  #Beoordelingen {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #Beoordelingen video,
+  #Beoordelingen div {
+    width: 50%;
+  }
+
+  #Beoordelingen video {
+    padding: 2em;
+    padding-bottom: 6em;
+  }
+
+  #Beoordelingen div {
+    padding-left: 0;
+    padding-bottom: 10em;
+  }
+
+  .form-wrapper {
+    max-width: 100%;
+    padding: 0 1em 2em 1em;
+  }
+
+  footer > :last-child {
+    margin: 0 5em 17em 0;
+  }
+}
+
+@media (max-width: 700px) {
+  header {
+    justify-content: center;
+  }
+
+  #OverMij p,
+  #Reparaties > div p,
+  #Contact div div:first-of-type p {
+    width: 100%;
+  }
+
+  #Introductie {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5)),
+      url("persoonlijk/persoonlijk_2.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  #Introductie h2 {
+    font-size: 3.5em;
+  }
+
+  #Introductie h3 {
+    font-size: 1.1em;
+    max-width: 100%;
+  }
+
+  #Reparaties h2,
+  #Contact h2 {
+    font-size: 4em;
+  }
+
+  #Reparaties ul {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #Reparaties ul li img {
+    max-width: 100%;
+  }
+
+  #Contact h2 {
+    padding-bottom: 1em;
+  }
+
+  #Contact > div > div img,
+  #OverMij > div figure img {
+    display: none;
+  }
+
+  #OverMij > figure img {
+    width: 100%;
+    padding-top: 3em;
+  }
+
+  #Beoordelingen video {
+    width: 100%;
+  }
+
+  #Beoordelingen div {
+    width: 80%;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  footer > :first-child {
+    margin-bottom: 2em;
+  }
+
+  footer > :last-child {
+    margin: 2em 0 2em 0;
+  }
+}
