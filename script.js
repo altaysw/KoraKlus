@@ -25,3 +25,34 @@ window.addEventListener("scroll", () => {
     header.classList.remove("active-bg");
   }
 });
+
+// =======================
+// Highlight Slide Image
+// =======================
+
+const images = [
+  "ngombi/ngombi_1.jpg",
+  "ngombi/ngombi_2.jpg",
+  "ngombi/ngombi_3.jpg",
+  "ngombi/ngombi_4.jpg",
+  "ngombi/ngombi_5.jpg",
+  "ngombi/ngombi_6.jpg",
+  "ngombi/ngombi_7.jpg",
+];
+
+let index = 0;
+
+function showSlide(i) {
+  const slide = document.getElementById("slide");
+  slide.src = images[i];
+}
+
+function nextSlide() {
+  index = (index + 1) % images.length;
+  showSlide(index);
+}
+
+function prevSlide() {
+  index = (index - 1 + images.length) % images.length;
+  showSlide(index);
+}
